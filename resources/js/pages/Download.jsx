@@ -1,8 +1,8 @@
-export default function About() {
+export default function Download() {
     return <div className="container">
         <div className="row my-5">
             <div className="col-md-8 mx-auto">
-                <h1>About</h1>
+                <h1>Download</h1>
             </div>
         </div>
     </div>;

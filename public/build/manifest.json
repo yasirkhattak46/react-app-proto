@@ -1,12 +1,91 @@
 {
+  "public/assets/images/autoreply1.png": {
+    "file": "assets/autoreply1-8f01f80c.png",
+    "src": "public/assets/images/autoreply1.png"
+  },
+  "public/assets/images/hero.png": {
+    "file": "assets/hero-bcf46c7e.png",
+    "src": "public/assets/images/hero.png"
+  },
+  "public/assets/images/icon1.png": {
+    "file": "assets/icon1-c612aa48.png",
+    "src": "public/assets/images/icon1.png"
+  },
+  "public/assets/images/icon2.png": {
+    "file": "assets/icon2-91c4def1.png",
+    "src": "public/assets/images/icon2.png"
+  },
+  "public/assets/images/icon3.png": {
+    "file": "assets/icon3-3e76ed5f.png",
+    "src": "public/assets/images/icon3.png"
+  },
+  "public/assets/images/insta.png": {
+    "file": "assets/insta-4428226c.png",
+    "src": "public/assets/images/insta.png"
+  },
+  "public/assets/images/s31.png": {
+    "file": "assets/s31-2e819966.png",
+    "src": "public/assets/images/s31.png"
+  },
+  "public/assets/images/s32.png": {
+    "file": "assets/s32-00c27ffb.png",
+    "src": "public/assets/images/s32.png"
+  },
+  "public/assets/images/s33.png": {
+    "file": "assets/s33-b56650a1.png",
+    "src": "public/assets/images/s33.png"
+  },
+  "public/assets/images/s34.png": {
+    "file": "assets/s34-85ffdc50.png",
+    "src": "public/assets/images/s34.png"
+  },
+  "public/assets/images/s35.png": {
+    "file": "assets/s35-20df478f.png",
+    "src": "public/assets/images/s35.png"
+  },
+  "public/assets/images/tiktok.png": {
+    "file": "assets/tiktok-0605089b.png",
+    "src": "public/assets/images/tiktok.png"
+  },
+  "public/assets/images/yt.png": {
+    "file": "assets/yt-131bd9d6.png",
+    "src": "public/assets/images/yt.png"
+  },
   "resources/css/app.css": {
-    "file": "assets/app-829fb0a8.css",
+    "file": "assets/app-4dca53eb.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
+  "resources/js/app.css": {
+    "file": "assets/app-702c97b5.css",
+    "src": "resources/js/app.css"
+  },
   "resources/js/app.jsx": {
-    "file": "assets/app-594b956a.js",
+    "assets": [
+      "assets/logo-c7f8d2fa.png",
+      "assets/hero-bcf46c7e.png",
+      "assets/icon1-c612aa48.png",
+      "assets/icon2-91c4def1.png",
+      "assets/icon3-3e76ed5f.png",
+      "assets/s31-2e819966.png",
+      "assets/s32-00c27ffb.png",
+      "assets/s33-b56650a1.png",
+      "assets/s34-85ffdc50.png",
+      "assets/s35-20df478f.png",
+      "assets/autoreply1-8f01f80c.png",
+      "assets/yt-131bd9d6.png",
+      "assets/tiktok-0605089b.png",
+      "assets/insta-4428226c.png"
+    ],
+    "css": [
+      "assets/app-702c97b5.css"
+    ],
+    "file": "assets/app-87f50da0.js",
     "isEntry": true,
     "src": "resources/js/app.jsx"
+  },
+  "resources/js/assets/images/logo.png": {
+    "file": "assets/logo-c7f8d2fa.png",
+    "src": "resources/js/assets/images/logo.png"
   }
 }
