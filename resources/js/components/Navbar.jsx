@@ -15,13 +15,13 @@ export default function Navbar() {
                 <div className="collapse navbar-collapse d-flex justify-content-between" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item active">
-                            <Link to={'/react-app-proto'} className="nav-link" href="#">Home</Link>
+                            <Link to={'/GbWhatsApp'} className="nav-link" href="#">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to={'react-app-proto/blogs'} className="nav-link" href="#">Blog</Link>
+                            <Link to={'GbWhatsApp/blogs'} className="nav-link" href="#">Blog</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to={'react-app-proto/download'} className="nav-link" href="#">Download</Link>
+                            <Link to={'GbWhatsApp/download'} className="nav-link" href="#">Download</Link>
                         </li>
                     </ul>
                     <div>

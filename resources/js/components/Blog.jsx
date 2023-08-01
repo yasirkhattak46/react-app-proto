@@ -1,20 +1,19 @@
 import {Link} from "react-router-dom";
-import blog_image from '../../../public/assets/images/blog.jpg'
-export default function Blog() {
+import {base_url, blog, imagesUrl} from "@/components/urls.jsx";
+
+const Blog = (props) => {
     return (
         <>
-            <div className={"card mb-3 box-shadow"}>
-                <div className={"row g-0"}>
+            <div className={"card mb-3 box-shadow blog_card"}>
+                <div className={"row g-0 h-100"}>
                     <div className={"col-md-4"}>
-                        <img src={blog_image} className="blog_img" alt="..."/>
+                        <img src={`${imagesUrl}${props?.blogdata?.image}`} className="blog_img" alt="..."/>
                     </div>
                     <div className={"col-md-8"}>
                         <div className={"card-body"}>
-                            <h5 className={"card-title"}>Free Download Vijay Deverakonda's Hindi Dubbed Movies</h5>
-                            <p className={"card-text"}>This is a wider card with supporting text below as a
-                                natural
-                                lead-in to additional content. This content is a little bit longer.</p>
-                            <Link className={'blog_read_more'} to={'/react-app-proto/url'} >Read More</Link>
+                            <h5 className={"card-title"}>{props?.blogdata?.title}</h5>
+                            <div dangerouslySetInnerHTML={{__html:props?.blogdata?.main_content?.slice(0, 300) }} className={"card-text"}></div>
+                            <Link className={'blog_read_more'} to={`${base_url}/blog/${props?.blogdata?.slug}`}>Read More</Link>
                         </div>
                     </div>
                 </div>
@@ -22,3 +21,4 @@ export default function Blog() {
         </>
     );
 };
+export default Blog

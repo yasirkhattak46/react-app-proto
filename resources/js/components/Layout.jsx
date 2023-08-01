@@ -8,7 +8,7 @@ export default function Layout() {
             <head>
                 <Link rel={'icon'}/>
             </head>
-            <Navbar />
+            <Navbar/>
             <Router/>
             <Footer/>
         </>

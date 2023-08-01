@@ -1,18 +1,17 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
-import Dynamic from "../pages/Dynamic";
 import Download from "../pages/Download";
 import Blogs from "../pages/Blogs.jsx";
+import BlogDetail from "@/pages/BlogDetail.jsx";
 
-const base_url = "/react-app-proto"
+const base_url = "GbWhatsApp"
 export default function Router() {
     return (
         <Routes>
-            <Route path="/react-app-proto" element={<Home />}/>
-            <Route path="/react-app-proto/Blogs" element={<Blogs />} />
-            <Route path="/react-app-proto/Download" element={<Download />} />
-            <Route path="/react-app-proto/dynamic/:id" element={<Dynamic />} />
-            <Route path="/react-app-proto/dynamic/:id/:page" element={<Dynamic />} />
+            <Route path={base_url} element={<Home />}/>
+            <Route path={`${base_url}/Blogs`} element={<Blogs />} />
+            <Route path={`${base_url}/Download`} element={<Download />} />
+            <Route path={`${base_url}/blog/:slug`} element={<BlogDetail />} />
         </Routes>
     );
 }

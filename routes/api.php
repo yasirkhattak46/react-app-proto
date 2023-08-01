@@ -17,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::controller(\App\Http\Controllers\ApiController::class)
+    ->group(function () {
+        Route::get('/homeData', 'homeData')->name('homeData');
+        Route::get('blog/{slug}','blog');
+        Route::get('blogs','blogs');
+        Route::get('download','download');
+    });
