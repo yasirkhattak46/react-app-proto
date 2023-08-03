@@ -5,9 +5,6 @@ import Router from "../Navigation/Routes";
 export default function Layout() {
     return (
         <>
-            <head>
-                <Link rel={'icon'}/>
-            </head>
             <Navbar/>
             <Router/>
             <Footer/>

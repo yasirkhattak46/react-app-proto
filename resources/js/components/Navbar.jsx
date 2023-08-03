@@ -1,13 +1,15 @@
 import React from "react";
 import logo from '../assets/images/logo.png'
 import {Link} from "react-router-dom";
+import GoogleTranslator from "@/components/GoogleTranslator.jsx";
 
 
 export default function Navbar() {
+    window.googleTranslateElementInit();
     return (
         <div className="container">
             <nav className="navbar main-nav navbar-expand-lg">
-                <a className="navbar-brand" href="#"><img src={logo}></img></a>
+                <a className="navbar-brand" href="#"><img className={'logo'} src={logo} alt={''}></img></a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -24,10 +26,8 @@ export default function Navbar() {
                             <Link to={'GbWhatsApp/download'} className="nav-link" href="#">Download</Link>
                         </li>
                     </ul>
-                    <div>
-                        <select>
-                            <option>English</option>
-                        </select>
+                    <div id={'multiLang'}>
+                    <GoogleTranslator/>
                     </div>
                 </div>
             </nav>

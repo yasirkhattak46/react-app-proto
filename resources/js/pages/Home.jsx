@@ -48,7 +48,7 @@ export default function Home() {
                     <div>
                         <div className="container">
                             <div className="row py-5">
-                                <div className="col-lg-8 col-sm-12 cl-md-12 pt-3">
+                                <div className="col-lg-8 col-sm-12 cl-md-12 pt-3 hero-text">
                                     <h1 className={'title-text'}> {homeData?.hero?.title}</h1>
                                     <p style={{fontSize: "40px"}}>{homeData?.hero?.sub_title}</p>
                                     <a href={homeData?.hero?.btn_link}>
@@ -95,8 +95,8 @@ export default function Home() {
                                     ))}
                                 </div>
                             </div>
-                            {colorContent.map((value) => (
-                                <div className={'detail_sec box-shadow'} dangerouslySetInnerHTML={{__html: value}}>
+                            {colorContent.map((value,key) => (
+                                <div key={key} className={'detail_sec box-shadow'} dangerouslySetInnerHTML={{__html: value}}>
                                 </div>
                             ))}
                             <div className={'row text-center'}>
