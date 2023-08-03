@@ -1,7 +1,18 @@
+:root {
+    --bg: #fff;
+    --font-size:12px;
+    --primary-color: #209A8CFF;
+    --secondary-color: #4AC4B6FF;
+    --dark-color: #2a2828;
+    --alternate-color: #45C657FF;
+    --gradient: linear-gradient(119deg, #209a8c 0%, #209a8c 31%, #4ac4b6 100%);
+    --gradient1: linear-gradient(135deg, #38cbdb 0%, #45c657 100%) !important;
+}
+
 body {
     min-height: 100vh !important;
     margin: 0 auto;
-    /*font-family: Roboto, serif !important;*/
+    background-color: var(--bg) !important;
 }
 
 
@@ -12,7 +23,7 @@ a.nav-link {
 }
 
 .nav-link:focus, .nav-link:active, .nav-link:hover {
-    background: linear-gradient(119deg, #209a8c 0%, #209a8c 31%, #4ac4b6 100%);
+    background: var(--gradient);
     border-radius: 5px;
 }
 
@@ -21,7 +32,7 @@ a.nav-link {
     width: 1014px;
     height: 34.49275rem;
     transform: rotate(120deg);
-    background: linear-gradient(119deg, #209a8c 0%, #209a8c 31%, #4ac4b6 100%);
+    background: var(--gradient);
     border-radius: 4.657rem;
     opacity: 0.8;
     position: absolute;
@@ -47,7 +58,7 @@ a.nav-link {
     padding: 10px 40px;
     border: unset;
     border-radius: 5px;
-    background-color: #209a8c;
+    background-color: var(--primary-color);
 }
 
 .vid_sec {
@@ -63,7 +74,7 @@ a.nav-link {
     padding: 2px 20px;
     border: unset;
     border-radius: 5px;
-    background-color: #209a8c;
+    background-color: var(--primary-color);
 }
 
 .box-shadow {
@@ -99,7 +110,7 @@ a.nav-link {
 .detail_sec {
     padding: 20px;
     margin: 50px;
-    background: linear-gradient(135deg, #38cbdb 0%, #45c657 100%) !important;
+    background: var(--gradient1);
     border-radius: 0.19324rem;
     text-align: center;
 }
@@ -197,7 +208,7 @@ a.nav-link {
 }
 
 .footer {
-    background-color: #0e5f58;
+    background-color: var(--primary-color);
 }
 
 .loader_screen {

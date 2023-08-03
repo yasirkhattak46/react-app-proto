@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::view('/{path?}', 'welcome')
     ->where('path', '^((?!admin).)*$');
 
+Route::get('/{path?}', 'App\Http\Controllers\MainController@home')->name('login')->where('path', '^((?!admin).)*$');
+
+
 Route::get('/route-cache', function () {
     Cache::flush();
     return 'Routes cache cleared';

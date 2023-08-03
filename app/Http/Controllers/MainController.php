@@ -23,6 +23,14 @@ class MainController extends Controller
      * Display a listing of the resource.
      */
 
+    public function home()
+    {
+        $data['status'] = "Success";
+        $data['result']['app_url'] = env("APP_URL");
+        $data['result']['settings'] = Settings::get()[0];
+        return view('welcome', $data);
+    }
+
     public function login()
     {
         return view('admin.login');
