@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\download;
+use App\Models\Home_video;
 use App\Models\HomeFeaturesSection;
 use App\Models\HomeHeroSection;
 use App\Models\HomeMultiSec;
@@ -503,6 +504,20 @@ class MainController extends Controller
         }
         return response($data);
 
+    }
+
+    function home_video()
+    {
+        $data['home_video'] = Home_video::first();
+        return view('admin.home_video', $data);
+    }
+
+    public function home_video_Submit(Request $request)
+    {
+        dd($request);
+        HomeHeroSection::updateOrCreate([
+            'id' => $request->id,
+        ], []);
     }
 
 }

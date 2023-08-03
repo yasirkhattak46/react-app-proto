@@ -50,6 +50,12 @@ a.nav-link {
     background-color: #209a8c;
 }
 
+.vid_sec {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
 .download_btn_page {
     width: 80%;
     margin: 10px;
@@ -91,6 +97,7 @@ a.nav-link {
 }
 
 .detail_sec {
+    padding: 20px;
     margin: 50px;
     background: linear-gradient(135deg, #38cbdb 0%, #45c657 100%) !important;
     border-radius: 0.19324rem;

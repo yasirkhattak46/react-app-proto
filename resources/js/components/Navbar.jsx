@@ -1,7 +1,10 @@
 import React from "react";
 import logo from '../assets/images/logo.png'
-import {Link} from "react-router-dom";
 import GoogleTranslator from "@/components/GoogleTranslator.jsx";
+import Container from "react-bootstrap/Container";
+import Navbar1 from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import {LinkContainer} from 'react-router-bootstrap'
 
 
 export default function Navbar() {
@@ -10,24 +13,27 @@ export default function Navbar() {
         <div className="container">
             <nav className="navbar main-nav navbar-expand-lg">
                 <a className="navbar-brand" href="#"><img className={'logo'} src={logo} alt={''}></img></a>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
                 <div className="collapse navbar-collapse d-flex justify-content-between" id="navbarNav">
-                    <ul className="navbar-nav">
-                        <li className="nav-item active">
-                            <Link to={'/GbWhatsApp'} className="nav-link" href="#">Home</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to={'GbWhatsApp/blogs'} className="nav-link" href="#">Blog</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to={'GbWhatsApp/download'} className="nav-link" href="#">Download</Link>
-                        </li>
-                    </ul>
+                    <Navbar1 expand="lg" className="bg-body-tertiary">
+                        <Container>
+                            <Navbar1.Toggle className="navbar-toggler" aria-controls="basic-navbar-nav" />
+                            <Navbar1.Collapse id="basic-navbar-nav">
+                                <Nav className="me-auto navbar-nav">
+                                    <LinkContainer to="/GbWhatsApp/">
+                                        <Nav.Link className="nav-link">Home</Nav.Link>
+                                    </LinkContainer>
+                                    <LinkContainer to="/GbWhatsApp/blogs">
+                                        <Nav.Link className="nav-link">Blog</Nav.Link>
+                                    </LinkContainer>
+                                    <LinkContainer to="/GbWhatsApp/download">
+                                        <Nav.Link className="nav-link">Download</Nav.Link>
+                                    </LinkContainer>
+                                </Nav>
+                            </Navbar1.Collapse>
+                        </Container>
+                    </Navbar1>
                     <div id={'multiLang'}>
-                    <GoogleTranslator/>
+                        <GoogleTranslator/>
                     </div>
                 </div>
             </nav>

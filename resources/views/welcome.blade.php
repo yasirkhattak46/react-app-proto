@@ -14,7 +14,7 @@
     {{--<link rel="stylesheet" href="public/build/assets/app-829fb0a8.css">--}}
     @vite(['resources/css/app.css'])
 </head>
-<body class="antialiased" style="position: relative; top: 0px !important;" >
+<body class="antialiased" style="position: relative; top: 40px !important;" >
 <div id="app"></div>
 @viteReactRefresh
 @vite(['resources/js/app.jsx'])

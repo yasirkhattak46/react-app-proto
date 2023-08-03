@@ -45,5 +45,8 @@ Route::prefix('admin')->middleware('auth')->controller(MainController::class)
         Route::post('/delete_post', 'delete_post')->name('delete_post');
         Route::get('/download_page', 'download_page')->name('download_page');
         Route::post('/post_download', 'post_download')->name('post_download');
+        Route::get('/home_video', 'home_video')->name('home_video');
+        Route::post('/home_video_submit', 'home_video_submit')->name('home_video_submit');
+
     });
 

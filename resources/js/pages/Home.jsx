@@ -14,6 +14,7 @@ export default function Home() {
     const [appsIcons, setAppsIcons] = useState([]);
     const [isError, setIsError] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+    const [showVideo, setShowVideo] = useState(false);
 
     const getApiData = async () => {
         try {
@@ -40,7 +41,9 @@ export default function Home() {
         }
     }, [homeData])
     console.log('blogs', homeData?.blogs)
-    // console.log('homedata', homeData)
+    const handleThumbnailClick = () => {
+        setShowVideo(true);
+    };
     return (
         <>
             {isError ? <div style={{textAlign: "center"}}><h1>Something went Wrong</h1></div> :
@@ -95,8 +98,9 @@ export default function Home() {
                                     ))}
                                 </div>
                             </div>
-                            {colorContent.map((value,key) => (
-                                <div key={key} className={'detail_sec box-shadow'} dangerouslySetInnerHTML={{__html: value}}>
+                            {colorContent.map((value, key) => (
+                                <div key={key} className={'detail_sec box-shadow'}
+                                     dangerouslySetInnerHTML={{__html: value}}>
                                 </div>
                             ))}
                             <div className={'row text-center'}>
@@ -154,6 +158,18 @@ export default function Home() {
                                 ))}
 
                             </div>
+                        </section>
+                        <section className={'vid_sec'}>
+                            {showVideo ? (
+                                <iframe width="75%" height="500px" src="https://www.youtube.com/embed/GilJzFRz5Po"
+                                        title="YouTube video player" frameBorder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowFullScreen></iframe>
+                            ) : (
+                                <div onClick={handleThumbnailClick}>
+                                    <img src="../../../GbWhatsApp/public/assets/images/16868489406.jpg" alt=""/>
+                                </div>
+                            )}
                         </section>
                     </div>
             }

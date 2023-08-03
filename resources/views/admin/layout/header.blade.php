@@ -71,6 +71,8 @@
                             <li><a class="nav-link" href="{{route('hero_section')}}">Hero Section</a></li>
                             <li><a class="nav-link" href="{{route('feature_section')}}">Features Section</a></li>
                             <li><a class="nav-link" href="{{route('multi_sec')}}">Multi Section</a></li>
+                            <li><a class="nav-link" href="{{route('home_video')}}">Home Video</a></li>
+
                         </ul>
                     </li>
                     <li class="dropdown">
