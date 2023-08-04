@@ -8,7 +8,6 @@ export const imagesUrl = base_url + "/public/assets/images/"
 
 
 export const loadTheme = () => {
-    //alert('sfda');
     let doc_root = document.querySelector(':root');
     doc_root.style.setProperty('--bg', '#fff');
     doc_root.style.setProperty('--primary-color', initialStateFromServer.settings.primary_color);

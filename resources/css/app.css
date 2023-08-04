@@ -1,12 +1,12 @@
 :root {
     --bg: #fff;
-    --font-size:12px;
+    --font-size: 12px;
     --primary-color: #209A8CFF;
     --secondary-color: #4AC4B6FF;
     --dark-color: #2a2828;
     --alternate-color: #45C657FF;
-    --gradient: linear-gradient(119deg, #209a8c 0%, #209a8c 31%, #4ac4b6 100%);
-    --gradient1: linear-gradient(135deg, #38cbdb 0%, #45c657 100%) !important;
+    --gradient: linear-gradient(119deg, var(--primary-color) 0%, var(--secondary-color) 31%, var(--primary-color) 100%);
+    --gradient1: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%) !important;
 }
 
 body {
@@ -15,11 +15,16 @@ body {
     background-color: var(--bg) !important;
 }
 
+.navbar {
+    padding-top: 0px !important;
+}
 
 a.nav-link {
     color: #2a2828;
     font-size: 22px;
     font-weight: 600;
+    width: 100px;
+    text-align: center;
 }
 
 .nav-link:focus, .nav-link:active, .nav-link:hover {
@@ -65,6 +70,8 @@ a.nav-link {
     display: flex;
     justify-content: center;
     padding: 20px;
+    flex-direction: column;
+    align-items: center;
 }
 
 .download_btn_page {
@@ -312,9 +319,40 @@ a.nav-link {
     box-shadow: none !important;
 }
 
+.bg-body-tertiary {
+    background-color: transparent !important;
+}
+
+.thubmnailDiv {
+    width: 80%;
+}
+
+.thumbnailImage {
+    width: 100%;
+    object-fit: cover;
+}
+
 /*Media Queries*/
 /* For Mobile: */
 @media only screen and (max-width: 600px) {
+    nav.navbar.navbar-expand-lg.navbar-light {
+        width: 100%;
+    }
+
+    a.navbar-brand {
+        margin-top: -15px;
+    }
+
+    .me-auto.navbar-nav.navbar-nav {
+        border-radius: 8px;
+        margin-top: 40px;
+        background: var(--secondary-color)
+    }
+
+    a.nav-link.nav-link {
+        width: 100%;
+    }
+
     .logo {
         position: absolute;
         left: 71px;

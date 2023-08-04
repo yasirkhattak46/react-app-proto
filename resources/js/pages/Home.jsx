@@ -40,7 +40,7 @@ export default function Home() {
             setFaqs(JSON.parse(homeData?.multiSec?.faqs))
         }
     }, [homeData])
-    console.log('blogs', homeData?.blogs)
+    console.log('blogs', homeData?.homeVideo)
     const handleThumbnailClick = () => {
         setShowVideo(true);
     };
@@ -159,15 +159,18 @@ export default function Home() {
 
                             </div>
                         </section>
-                        <section className={'vid_sec'}>
+                        <section className={'vid_sec container'}>
+                            <h1 className={'fw-bold fs-1 pb-3'}>{homeData?.homeVideo?.title}</h1>
+                            <div className={''} dangerouslySetInnerHTML={{__html: homeData?.homeVideo?.description}}>
+                            </div>
                             {showVideo ? (
-                                <iframe width="75%" height="500px" src="https://www.youtube.com/embed/GilJzFRz5Po"
+                                <iframe width="80%" height={'500'}  src="https://www.youtube.com/embed/GilJzFRz5Po"
                                         title="YouTube video player" frameBorder="0"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                         allowFullScreen></iframe>
                             ) : (
-                                <div onClick={handleThumbnailClick}>
-                                    <img src="../../../GbWhatsApp/public/assets/images/16868489406.jpg" alt=""/>
+                                <div className={'thubmnailDiv'} onClick={handleThumbnailClick}>
+                                    <img className={'thumbnailImage'} src={`${imagesUrl}${homeData?.homeVideo?.thumbnail}`} alt=""/>
                                 </div>
                             )}
                         </section>

@@ -522,10 +522,39 @@ class MainController extends Controller
 
     public function home_video_Submit(Request $request)
     {
-        dd($request);
-        HomeHeroSection::updateOrCreate([
-            'id' => $request->id,
-        ], []);
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'description' => 'required',
+            'video_id' => 'required',
+            'thumbnail' => 'required',
+        ]);
+        if ($validator->passes()) {
+            try {
+                if ($request->file('thumbnail')) {
+                    $image = time() . rand(1, 100) . '.' . $request->thumbnail->extension();
+                    $request->thumbnail->move(public_path('assets/images'), $image);
+                }else{
+                    $image = Home_video::where('id', $request->id)->pluck('thumbnail')->first();
+                }
+                Home_video::updateOrCreate([
+                    'id' => $request->id,
+                ], [
+                    'title'=>$request->title,
+                    'description'=>$request->description,
+                    'video_id'=>$request->video_id,
+                    'thumbnail'=>$image,
+                ]);
+                $data['status'] = "Success";
+                $data['result'] = "Update Successfully";
+            }catch (Exception $ex){
+                $data['status'] = "Failure";
+                $data['result'] = $ex;
+            }
+        }else{
+            $data['status'] = "validator";
+            $data['result'] = $validator->errors()->toJson();
+        }
+        return response($data);
     }
 
 }

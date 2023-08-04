@@ -27,30 +27,32 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-7 ml-3">
+                    </div>
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-7">
                             <div class="form-group">
-                                <label>Title</label>
-                                <input type="text" name="title" placeholder="Title"
+                                <label>Link</label>
+                                <input type="text" name="video_id" placeholder="Video Link"
                                        value="{{isset($home_video) ? $home_video->video_id : '' }}"
                                        class="form-control">
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="card-body">
-                            <div class="form-group">
-                                <div
-                                    style="background-image: url('{{isset($home_video) ? (asset("public/assets/images/".$home_video->thumbnail)) : '' }}')"
-                                    id="image-preview" class="image-preview">
-                                    <label for="image-upload" id="image-label">Choose Banner</label>
-                                    <input onchange="profile_image(this);" type="file" name="thumbnail" id="image-upload"/>
+                                <div class="form-group">
+                                    <div
+                                        style="background-image: url('{{isset($home_video) ? (asset("public/assets/images/".$home_video->thumbnail)) : '' }}')"
+                                        id="image-preview" class="image-preview">
+                                        <label for="image-upload" id="image-label">Choose Thumbnail</label>
+                                        <input onchange="profile_image(this);" type="file" name="thumbnail" id="image-upload"/>
+                                    </div>
                                 </div>
                             </div>
-                            </div>
                         </div>
+                    </div>
                         <div class="col-12 py-3 text-center">
                             <input type="submit" href="#" class="w-25 btn btn-primary">
                         </div>
-                    </div>
                 </form>
             </div>
         </section>
