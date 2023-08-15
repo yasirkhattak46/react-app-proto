@@ -10,9 +10,10 @@ class Home_video extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title',
+        'image',
         'description',
         'video_id',
         'thumbnail',
+        'content'
     ];
 }

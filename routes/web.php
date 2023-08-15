@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::view('/{path?}', 'welcome')
-    ->where('path', '^((?!admin).)*$');
-
-Route::get('/{path?}', 'App\Http\Controllers\MainController@home')->name('login')->where('path', '^((?!admin).)*$');
+//Route::view('/{path?}', 'welcome')
+//    ->where('path', '^((?!admin).)*$');
+//
+//Route::get('/{path?}', 'App\Http\Controllers\MainController@home')->name('login')->where('path', '^((?!admin).)*$');
 
 
 Route::get('/route-cache', function () {
@@ -50,6 +50,20 @@ Route::prefix('admin')->middleware('auth')->controller(MainController::class)
         Route::post('/post_download', 'post_download')->name('post_download');
         Route::get('/home_video', 'home_video')->name('home_video');
         Route::post('/home_video_submit', 'home_video_submit')->name('home_video_submit');
+        Route::get('/pages', 'pages')->name('pages');
+        Route::post('/pages_submit', 'pages_submit')->name('pages_submit');
 
     });
 
+//Front-end routes/
+Route::controller(\App\Http\Controllers\FrontendController::class)
+    ->group(function () {
+        Route::get('/', 'homeData')->name('homeData');
+        Route::get('blogs','blogs');
+        Route::get('blog/{slug}','blog');
+        Route::get('download','download');
+        Route::get('about-us','about_us');
+        Route::get('privacy-policy','privacy');
+        Route::get('contact-us','contact');
+        Route::get('{lang}','changeLang');
+    });

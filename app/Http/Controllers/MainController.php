@@ -8,6 +8,7 @@ use App\Models\Home_video;
 use App\Models\HomeFeaturesSection;
 use App\Models\HomeHeroSection;
 use App\Models\HomeMultiSec;
+use App\Models\Pages;
 use App\Models\Settings;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -108,14 +109,12 @@ class MainController extends Controller
     public function postSetting(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'logo' => 'required',
             'primary_color' => 'required',
             'secondary_color' => 'required',
-            'header_script' => 'required',
-            'footer_script' => 'required',
             'meta_title' => 'required',
             'meta_description' => 'required',
             'meta_keywords' => 'required',
+            'email' => 'required',
 
         ]);
         if ($validator->passes()) {
@@ -140,6 +139,7 @@ class MainController extends Controller
                 'meta_title' => $request->meta_title,
                 'meta_description' => $request->meta_description,
                 'meta_keywords' => $request->meta_keywords,
+                'email' => $request->email,
             ]);
             $data['status'] = "Success";
             $data['result'] = "Update Successfully";
@@ -242,9 +242,12 @@ class MainController extends Controller
     public function postFeature_section(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'main_content' => 'required',
+            'title' => 'required',
+            'description' => 'required',
             'icons_title' => 'required',
-            'icons' => 'required',
+            'icons' => 'required|array',
+            'icons.*.text' => 'required|string',
+            'icons.*.image' => 'required',
         ]);
         if ($validator->passes()) {
             try {
@@ -277,7 +280,8 @@ class MainController extends Controller
                 HomeFeaturesSection::updateOrCreate([
                     'id' => $request->id,
                 ], [
-                    'main_content' => $request->main_content,
+                    'title' => $request->title,
+                    'description' => $request->description,
                     'icons_title' => $request->icons_title,
                     'icons' => $icons_var,
                 ]);
@@ -306,18 +310,22 @@ class MainController extends Controller
         try {
 //            Color Content
             if (isset($request->color_content) && count($request->color_content) > 0) {
-                foreach ($request->color_content as $key => $content) {
-                    if (isset($content) && $content != null) {
-                        $color_content_array[$key] = $content;
+                foreach ($request->color_content as $key => $color_c) {
+                    if (isset($color_c['image'])) {
+                        $image = time() . rand(1, 100) . '.' . $color_c['image']->extension();
+                        $color_c['image']->move(public_path('assets/images'), $image);
+                    } else {
+                        $image = null;
+                    }
+                    if ($color_c['title'] != null) {
+                        $new_array[$key]['title'] = $color_c['title'];
+                        $new_array[$key]['description'] = $color_c['description'];
+                        $new_array[$key]['image'] = $image;
                     }
                 }
-                if (isset($color_content_array) && count($color_content_array) > 0) {
-                    $color_content = json_encode($color_content_array);
-                } else {
-                    $color_content = null;
-                }
+                $new_color_content = json_encode($new_array);
             } else {
-                $color_content = null;
+                $new_color_content = null;
             }
 
 //            FAQS
@@ -368,7 +376,7 @@ class MainController extends Controller
             HomeMultiSec::updateOrCreate([
                 'id' => $request->id,
             ], [
-                'color_content' => $color_content,
+                'color_content' => $new_color_content,
                 'apps_title' => $request->apps_title,
                 'apps_icon' => $icons_var,
                 'faq_title' => $request->faq_title,
@@ -523,38 +531,72 @@ class MainController extends Controller
     public function home_video_Submit(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'title' => 'required',
+            'image' => 'required_without:id',
             'description' => 'required',
             'video_id' => 'required',
-            'thumbnail' => 'required',
+            'thumbnail' => 'required_without:id',
+            'content' => 'required'
         ]);
         if ($validator->passes()) {
             try {
                 if ($request->file('thumbnail')) {
-                    $image = time() . rand(1, 100) . '.' . $request->thumbnail->extension();
-                    $request->thumbnail->move(public_path('assets/images'), $image);
-                }else{
-                    $image = Home_video::where('id', $request->id)->pluck('thumbnail')->first();
+                    $thumbnail = time() . rand(1, 100) . '.' . $request->thumbnail->extension();
+                    $request->thumbnail->move(public_path('assets/images'), $thumbnail);
+                } else {
+                    $thumbnail = Home_video::where('id', $request->id)->pluck('thumbnail')->first();
+                }
+                if ($request->file('image')) {
+                    $image = time() . rand(1, 100) . '.' . $request->image->extension();
+                    $request->image->move(public_path('assets/images'), $image);
+                } else {
+                    $image = Home_video::where('id', $request->id)->pluck('image')->first();
                 }
                 Home_video::updateOrCreate([
                     'id' => $request->id,
                 ], [
-                    'title'=>$request->title,
-                    'description'=>$request->description,
-                    'video_id'=>$request->video_id,
-                    'thumbnail'=>$image,
+                    'title' => $request->title,
+                    'description' => $request->description,
+                    'content' => $request->content,
+                    'video_id' => $request->video_id,
+                    'thumbnail' => $thumbnail,
+                    'image' => $image,
                 ]);
                 $data['status'] = "Success";
                 $data['result'] = "Update Successfully";
-            }catch (Exception $ex){
+            } catch (Exception $ex) {
                 $data['status'] = "Failure";
                 $data['result'] = $ex;
             }
-        }else{
+        } else {
             $data['status'] = "validator";
             $data['result'] = $validator->errors()->toJson();
         }
         return response($data);
     }
 
+    public function pages()
+    {
+        $data['pages'] = Pages::first();
+        return view('admin.pages', $data);
+    }
+
+    public function pages_submit(Request $request)
+    {
+        try {
+            Pages::updateOrCreate([
+                'id' => $request->id,
+            ], [
+                'about_us' => $request->about_us,
+                'privacy_policy' => $request->privacy_policy,
+                'contact' => $request->contact,
+            ]);
+            $data['status'] = "Success";
+            $data['result'] = "Update Successfully";
+        } catch (Exception $ex) {
+            $data['status'] = "Failure";
+            $data['result'] = $ex;
+        }
+        return response($data);
+
+    }
 }

@@ -4,7 +4,7 @@ import Download from "../pages/Download";
 import Blogs from "../pages/Blogs.jsx";
 import BlogDetail from "@/pages/BlogDetail.jsx";
 
-const base_url = "GbWhatsApp"
+const base_url = ""
 export default function Router() {
     return (
         <Routes>

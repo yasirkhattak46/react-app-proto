@@ -13,14 +13,20 @@
                             </div>
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label>Main</label>
-                                    <textarea name="main_content" class="summernote">
-                                        {{isset($feature_sec) ? $feature_sec->main_content : 'Write Down Here' }}
-                         </textarea>
+                                    <label for="title">Main Title</label>
+                                    <input id="title" type="text" name="title" placeholder="Title"
+                                           value="{{isset($feature_sec) ? $feature_sec->title : '' }}"
+                                           class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label>Icons Main Title</label>
-                                    <input type="text" name="icons_title" placeholder="Icons Main  Here"
+                                    <label for="description">Description</label>
+                                    <textarea id="description" name="description" class="w-100" rows="5">
+                                        {{isset($feature_sec)?$feature_sec->description:''}}
+                                        </textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Icons Title</label>
+                                    <input type="text" name="icons_title" placeholder="Icons Title"
                                            value="{{isset($feature_sec) ? $feature_sec->icons_title : '' }}"
                                            class="form-control">
                                 </div>

@@ -36,7 +36,7 @@ export default function Home() {
             setIcons(JSON.parse(homeData.hero.icons))
             setFeatureIcons(JSON.parse(homeData?.feature?.icons))
             setColorContent(JSON.parse(homeData?.multiSec?.color_content))
-            setAppsIcons(JSON.parse(homeData?.multiSec?.apps_icon))
+            // setAppsIcons(JSON.parse(homeData?.multiSec?.apps_icon))
             setFaqs(JSON.parse(homeData?.multiSec?.faqs))
         }
     }, [homeData])

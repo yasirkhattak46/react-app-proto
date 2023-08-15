@@ -23,18 +23,23 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Meta Keywords</label>
-                                    <input type="text" name="meta_keywords" placeholder="mobile, app, best"  value="{{isset($setting) ? $setting->meta_description : '' }}"
+                                    <input type="text" name="meta_keywords" placeholder="mobile, app, best"  value="{{isset($setting) ? $setting->meta_keywords : '' }}"
+                                           class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="text" name="email" placeholder="Email Address"  value="{{isset($setting) ? $setting->email : '' }}"
                                            class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Header Scripts</label>
                                     <textarea placeholder="Header Scripts" rows="5" name="header_script"
-                                              class="w-100 focus-ring-danger p-2">{{isset($setting) ? $setting->meta_description : '' }}</textarea>
+                                              class="w-100 focus-ring-danger p-2">{{isset($setting) ? $setting->header_script : '' }}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Footer Scripts</label>
                                     <textarea placeholder="Footer Scripts" name="footer_script" rows="5"
-                                              class="w-100 focus-ring-danger p-2">{{isset($setting) ? $setting->meta_description : '' }}</textarea>
+                                              class="w-100 focus-ring-danger p-2">{{isset($setting) ? $setting->footer_script : '' }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -51,7 +56,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Secondary Color</label>
-                                <input placeholder="Title here" {{isset($setting) ? $setting->secondary_color : '' }} type="color" name="secondary_color"
+                                <input placeholder="Title here" value="{{isset($setting) ? $setting->secondary_color : '' }}" type="color" name="secondary_color"
                                        class="form-control">
                             </div>
                         </div>

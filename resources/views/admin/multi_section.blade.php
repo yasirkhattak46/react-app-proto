@@ -13,27 +13,69 @@
                             </div>
                             <div class="card-body">
                                 <div class="form-group">
-                                    @php $color_content = (isset($multi_sec->color_content) && $multi_sec->color_content != null) ? (json_decode($multi_sec->color_content)) : null @endphp
-                                    <div id="editor_div">
-                                        <div class="d-flex editor_parent">
-                                        <textarea name="color_content[]" class="summernote">
-                                        {{isset($color_content[0]) ? $color_content[0] : '' }}
-                                     </textarea>
+                                    @php $color_content = (isset($multi_sec->color_content) && $multi_sec->color_content != null) ? (json_decode($multi_sec->color_content,true)) : null @endphp
+                                    <div class="row align-items-center">
+                                        <div class="col-4">
+                                            <label>Title</label>
+                                            <input type="text" name="color_content[0][title]" value="{{isset($color_content[0]) ? $color_content[0]['title'] :'' }}" class="form-control">
                                         </div>
-                                        <div class="d-flex editor_parent">
-                                        <textarea name="color_content[]" class="summernote">
-                                        {{isset($color_content[1]) ? $color_content[1] : '' }}
-                                     </textarea>
-
+                                        <div class="col-6">
+                                            <label>Description</label>
+                                            <textarea rows="5" name="color_content[0][description]" class="form-control">{{isset($color_content[0]) ? $color_content[0]['description'] :'' }}</textarea>
                                         </div>
-                                        <div class="d-flex editor_parent">
-                                        <textarea name="color_content[]" class="summernote">
-                                        {{isset($color_content[2]) ? $color_content[2] : '' }}
-                                     </textarea>
+                                        <div class="col-2">
+                                            <div class="form-group">
+                                                <label>Image</label>
+                                                <div
+                                                    style="width: 150px; height:100px; "
+                                                    id="image-preview" class="image-preview">
+                                                    <label for="image-upload" id="image-label">Choose Icon</label>
+                                                    <input onchange="profile_image(this);" type="file" name="color_content[0][image]"
+                                                           id="image-upload"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <label>Title</label>
+                                            <input type="text" name="color_content[1][title]" value="{{isset( $color_content[1]) ? $color_content[1]['title'] :'' }}" class="form-control">
+                                        </div>
+                                        <div class="col-6">
+                                            <label>Description</label>
+                                            <textarea rows="5" name="color_content[1][description]" class="form-control">{{isset( $color_content[1]) ? $color_content[1]['description'] :'' }}</textarea>
+                                        </div>
+                                        <div class="col-2">
+                                            <div class="form-group">
+                                                <label>Image</label>
+                                                <div
+                                                    style="width: 150px; height:100px;"
+                                                    id="image-preview" class="image-preview">
+                                                    <label for="image-upload" id="image-label">Choose Icon</label>
+                                                    <input onchange="profile_image(this);" type="file" name="color_content[1][image]"
+                                                           id="image-upload"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <label>Title</label>
+                                            <input type="text" name="color_content[2][title]" value="{{isset($color_content[2]) ? $color_content[2]['title'] :'' }}" class="form-control">
+                                        </div>
+                                        <div class="col-6">
+                                            <label>Description</label>
+                                            <textarea rows="5" name="color_content[2][description]" class="form-control">{{isset($color_content[2]) ? $color_content[2]['description'] :'' }}</textarea>
+                                        </div>
+                                        <div class="col-2">
+                                            <div class="form-group">
+                                                <label>Image</label>
+                                                <div
+                                                    style="width: 150px; height:100px;"
+                                                    id="image-preview" class="image-preview">
+                                                    <label for="image-upload" id="image-label">Choose Icon</label>
+                                                    <input onchange="profile_image(this);" type="file" name="color_content[2][image]"
+                                                           id="image-upload"/>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-
-
                                 </div>
                                 <div class="form-group">
                                     <label>Apps Title</label>
@@ -158,37 +200,37 @@
                                             </div>
                                         @endforeach
                                     @else
-                                    <div class="row justify-content-center align-items-center faq_count"
-                                         id="faq_parent">
-                                        <div class="col-5">
-                                            <div class="form-group">
-                                                <label>FAQ Question</label>
-                                                <input type="text" name="faqs[0][question]"
-                                                       placeholder="FAQ Question"
-                                                       class="form-control">
+                                        <div class="row justify-content-center align-items-center faq_count"
+                                             id="faq_parent">
+                                            <div class="col-5">
+                                                <div class="form-group">
+                                                    <label>FAQ Question</label>
+                                                    <input type="text" name="faqs[0][question]"
+                                                           placeholder="FAQ Question"
+                                                           class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-5">
+                                                <div class="form-group">
+                                                    <label>FAQ Answer</label>
+                                                    <input type="text" name="faqs[0][answer]"
+                                                           placeholder="FAQ Answer"
+                                                           class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <i style="font-size: 25px; color: red; cursor: pointer;"
+                                                   class="fas fa-window-close" id="remove_faq"></i>
                                             </div>
                                         </div>
-                                        <div class="col-5">
-                                            <div class="form-group">
-                                                <label>FAQ Answer</label>
-                                                <input type="text" name="faqs[0][answer]"
-                                                       placeholder="FAQ Answer"
-                                                       class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-2">
-                                            <i style="font-size: 25px; color: red; cursor: pointer;"
-                                               class="fas fa-window-close" id="remove_faq"></i>
-                                        </div>
-                                    </div>
                                     @endif
                                 </div>
-                                <div class="col-12">
-                                    <h6>Main Content</h6>
-                                    <textarea name="main_content" id="editor" class="summernote">
-                                        {{isset($multi_sec) ? $multi_sec->content : '' }}
-                                     </textarea>
-                                </div>
+{{--                                <div class="col-12">--}}
+{{--                                    <h6>Main Content</h6>--}}
+{{--                                    <textarea name="main_content" id="editor" class="summernote">--}}
+{{--                                        {{isset($multi_sec) ? $multi_sec->content : '' }}--}}
+{{--                                     </textarea>--}}
+{{--                                </div>--}}
                             </div>
                         </div>
                         <div class="col-12 py-3 text-center">

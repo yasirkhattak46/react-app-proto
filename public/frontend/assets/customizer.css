@@ -1,0 +1,18 @@
+.__app-text .customize-partial-edit-shortcut button, .home_banner .hb_txt h1 .customize-partial-edit-shortcut button, .home_banner .hb_txt h2 .customize-partial-edit-shortcut button, .home_banner .hb_txt h3 .customize-partial-edit-shortcut button, .home_banner .hb_txt p .customize-partial-edit-shortcut button {
+    left: 100px;
+    top: -16px
+}
+
+.home_banner .hb_img .customize-partial-edit-shortcut button {
+    top: 100px
+}
+
+.intro_box p .customize-partial-edit-shortcut button {
+    left: 24px;
+    top: -24px
+}
+
+.bl-title .customize-partial-edit-shortcut button {
+    left: 100px;
+    top: -24px
+}

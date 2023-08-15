@@ -80,6 +80,10 @@
                                 data-feather="file-text"></i><span>Blogs</span></a>
                     </li>
                     <li class="dropdown">
+                        <a href="{{route('pages')}}" class="nav-link"><i
+                                data-feather="file-text"></i><span>Pages</span></a>
+                    </li>
+                    <li class="dropdown">
                         <a href="{{route('download_page')}}" class="nav-link"><i
                                 data-feather="download"></i><span>Download</span></a>
                     </li>

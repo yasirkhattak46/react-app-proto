@@ -11,8 +11,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <title>{{$result['settings']['meta_title']}}</title>
-    {{--<link rel="stylesheet" href="public/build/assets/app-702c97b5.css">--}}
-    @vite(['resources/css/app.css'])
+    <link rel="stylesheet" href="public/build/assets/app-702c97b5.css">
+    <link rel="stylesheet" href="public/build/assets/app-c07d1e87.css">
+    {{--    @vite(['resources/css/app.css'])--}}
     <script>
         let initialStateFromServer = JSON.parse('<?=json_encode($result)?>')
     </script>
@@ -21,7 +22,7 @@
 <body class="antialiased" style="position: relative; top: 40px !important;" >
 <div id="app"></div>
 @viteReactRefresh
-@vite(['resources/js/app.jsx'])
-{{--<script src="public/build/assets/app-2f00afd8.js"></script>--}}
+{{--@vite(['resources/js/app.jsx'])--}}
+<script src="public/build/assets/app-c533d099.js"></script>
 </body>
 </html>

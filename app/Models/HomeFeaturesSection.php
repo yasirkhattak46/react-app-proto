@@ -10,7 +10,8 @@ class HomeFeaturesSection extends Model
     use HasFactory;
 
     protected $fillable = [
-        'main_content',
+        'title',
+        'description',
         'icons_title',
         'icons',
     ];
